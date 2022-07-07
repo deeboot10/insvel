@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./sass/index.scss";
+import "./firebase-config";
 
 ReactDOM.render(
   <React.StrictMode>
