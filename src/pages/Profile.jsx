@@ -2,19 +2,22 @@ import { useEffect, useState } from "react";
 import ProfileLoggedIn from "../components/ProfileLoggedIn";
 import ProfileNotLoggedIn from "../components/ProfileNotLoggedIn";
 import { auth } from "../firebase-config";
-function Profile() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+import { useSelector } from "react-redux";
 
-  useEffect(() => {
-    if (auth.currentUser) {
-      setIsLoggedIn(true);
-    }
-  }, []);
+function Profile() {
+  const isSignedIn = useSelector((state) => state.auth.isSignedIn);
+
+  // console if user is logged in or not
+  console.log(
+    `%c User is signed in: %c ${isSignedIn}`,
+    "color: white",
+    isSignedIn ? "color: green" : "color: red"
+  );
 
   return (
     <div className="profile">
       <h2>Profile</h2>
-      {isLoggedIn ? <ProfileLoggedIn /> : <ProfileNotLoggedIn />}
+      {isSignedIn ? <ProfileLoggedIn /> : <ProfileNotLoggedIn />}
     </div>
   );
 }

@@ -30,7 +30,7 @@ function Register() {
         onSubmit={(e) => {
           handleSubmit(e);
         }}
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ maxWidth: 300 }}
       >
         <input name="email" type="email" />
         <input name="password" type="password" />

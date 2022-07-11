@@ -5,7 +5,7 @@ function ChooseOption({ set }) {
       <p>Welcome to travel land! Have a good time! 🐱‍👓</p>
       <button
         onClick={() => {
-          set("log in");
+          set("sign in");
         }}
       >
         Log in

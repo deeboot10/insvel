@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LogIn from "./LogIn";
+import SignIn from "./SignIn";
 import Register from "./Register";
 import ChooseOption from "./ChooseOption";
 function ProfileNotLoggedIn() {
@@ -8,7 +8,7 @@ function ProfileNotLoggedIn() {
   return (
     <div>
       <h4>Not Logged in Section</h4>
-      {option === "log in" && <LogIn />}
+      {option === "sign in" && <SignIn />}
       {option === "register" && <Register />}
       {!option && <ChooseOption set={setOption} />}
     </div>

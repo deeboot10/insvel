@@ -1,9 +1,13 @@
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
+import { useDispatch } from "react-redux/es/exports";
+import { authActions } from "../context/Context";
 function ProfileLoggedIn() {
+  const dispatch = useDispatch();
   const handleLogOut = async () => {
     try {
-      signOut(auth);
+      await signOut(auth);
+      dispatch(authActions.logout());
     } catch (error) {
       console.log(error);
     }
@@ -16,7 +20,7 @@ function ProfileLoggedIn() {
         <b>UID:</b>
         <i>{auth.currentUser.uid}</i>
       </div>
-      <button onClick={handleLogOut}>Log out</button>
+      <button onClick={handleLogOut}>Sign out</button>
     </div>
   );
 }
