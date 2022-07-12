@@ -4,8 +4,7 @@ import { getDefaultMiddleware } from "@reduxjs/toolkit";
 // initial state of auth
 const authInitialValue = {
   isSignedIn: false,
-  userAuth: {},
-  userStore: {},
+  userData: {},
 };
 const authSlice = createSlice({
   name: "auth",
@@ -13,11 +12,11 @@ const authSlice = createSlice({
   reducers: {
     login(state, action) {
       state.isSignedIn = true;
-      //   state.userStore = action.payload.userStore;
+      state.userData = action.payload.userData;
     },
     logout(state) {
       state.isSignedIn = false;
-      //   state.userStore = {};
+      state.userData = {};
     },
   },
 });

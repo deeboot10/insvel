@@ -1,5 +1,5 @@
-import ProfileSignedIn from "../components/ProfileSignedIn";
-import ProfileNotSignedIn from "../components/ProfileNotSignedIn";
+import ProfileSignedIn from "../components/Profile/ProfileSignedIn";
+import ProfileNotSignedIn from "../components/Profile/ProfileNotSignedIn";
 import { useSelector } from "react-redux";
 
 function Profile() {

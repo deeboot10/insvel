@@ -1,8 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect } from "react";
-import { auth } from "../firebase-config";
+import { auth } from "../../firebase-config";
 import { useDispatch } from "react-redux";
-import { authActions } from "../context/Context";
+import { authActions } from "../../context/Context";
 
 function SignIn({ set }) {
   const dispatch = useDispatch();

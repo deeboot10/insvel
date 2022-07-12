@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase-config";
 import { useDispatch } from "react-redux";
 import { authActions } from "./context/Context";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -12,7 +13,14 @@ function App() {
     if (user) {
       // User is signed in, see docs for a list of available properties
       const uid = user.uid;
-      dispatch(authActions.login());
+
+      dispatch(
+        authActions.login({
+          userData: {
+            uid: uid,
+          },
+        })
+      );
     } else {
       // User is signed out
     }
@@ -21,7 +29,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Home></Home>
+      {/* <Home></Home> */}
       <Profile></Profile>
     </>
   );

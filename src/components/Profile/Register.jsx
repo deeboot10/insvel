@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../firebase-config";
+import { auth, db } from "../../firebase-config";
 import { setDoc, doc } from "firebase/firestore";
 import { useState } from "react";
 
@@ -70,15 +70,20 @@ function Register({ set }) {
       gender,
       image
     );
-    // try {
-    //   await createUserWithEmailAndPassword(auth, email, password);
-    //   await setDoc(doc(db, "users", user.user.uid), {
-    //     name: name,
-    //     surname: surname,
-    //   });
-    // } catch (error) {
-    //   console.log(error.message);
-    // }
+
+    try {
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      await setDoc(doc(db, "users", user.user.uid), {
+        name: name,
+        surname: surname,
+        email: email,
+        nationality: nationality,
+        date: date,
+        gender: gender,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
