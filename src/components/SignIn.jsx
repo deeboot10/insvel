@@ -4,7 +4,7 @@ import { auth } from "../firebase-config";
 import { useDispatch } from "react-redux";
 import { authActions } from "../context/Context";
 
-function SignIn() {
+function SignIn({ set }) {
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
@@ -33,6 +33,16 @@ function SignIn() {
         <input name="email" type="email" />
         <input name="password" type="password" />
         <button type="submit">Sign in</button>
+        <p>
+          Don't have an account?{" "}
+          <a
+            onClick={() => {
+              set("register");
+            }}
+          >
+            Register
+          </a>
+        </p>
       </form>
     </div>
   );

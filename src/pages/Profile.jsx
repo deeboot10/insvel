@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import ProfileLoggedIn from "../components/ProfileLoggedIn";
-import ProfileNotLoggedIn from "../components/ProfileNotLoggedIn";
-import { auth } from "../firebase-config";
+import ProfileSignedIn from "../components/ProfileSignedIn";
+import ProfileNotSignedIn from "../components/ProfileNotSignedIn";
 import { useSelector } from "react-redux";
 
 function Profile() {
@@ -17,7 +15,7 @@ function Profile() {
   return (
     <div className="profile">
       <h2>Profile</h2>
-      {isSignedIn ? <ProfileLoggedIn /> : <ProfileNotLoggedIn />}
+      {isSignedIn ? <ProfileSignedIn /> : <ProfileNotSignedIn />}
     </div>
   );
 }

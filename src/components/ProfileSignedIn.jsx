@@ -2,7 +2,7 @@ import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux/es/exports";
 import { authActions } from "../context/Context";
-function ProfileLoggedIn() {
+function ProfileSignedIn() {
   const dispatch = useDispatch();
   const handleLogOut = async () => {
     try {
@@ -15,7 +15,7 @@ function ProfileLoggedIn() {
 
   return (
     <div>
-      <h4>Logged in Section</h4>
+      <h4>Signed in Section</h4>
       <div>
         <b>UID:</b>
         <i>{auth.currentUser.uid}</i>
@@ -25,4 +25,4 @@ function ProfileLoggedIn() {
   );
 }
 
-export default ProfileLoggedIn;
+export default ProfileSignedIn;
